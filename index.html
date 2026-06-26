@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WearAI Support & Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0813;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-purple: #8B5CF6;
+            --accent-pink: #EC4899;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --gold-gradient: linear-gradient(135deg, #FFE07D 0%, #F59E0B 100%);
+            --purple-pink-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
+        }
+
+        header {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+            background: var(--purple-pink-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-badge {
+            background: var(--gold-gradient);
+            color: #1e1b4b;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+        }
+
+        main {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+            flex-grow: 1;
+        }
+
+        /* Tab Switcher */
+        .tab-container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            padding: 6px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Glassmorphic Cards */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        /* Contact Details */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: var(--purple-pink-gradient);
+            color: white;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
+            margin-top: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Privacy Policy Styles */
+        .policy-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .policy-list li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .policy-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 18px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo-text {
+                font-size: 24px;
+            }
+            .glass-card {
+                padding: 20px;
+            }
+            .tab-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-icon">✨</span>
+            <span class="logo-text">WearAI</span>
+            <span class="logo-badge">Pro</span>
+        </div>
+        <p>Smart Closet & Virtual Try-On Assistant</p>
+    </header>
+
+    <main>
+        <!-- Tab Switcher -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('support')">Customer Support & FAQs</button>
+            <button class="tab-btn" onclick="switchTab('privacy')">Privacy Policy</button>
+        </div>
+
+        <!-- Support Tab -->
+        <div id="support-section" class="content-section active">
+            <div class="glass-card">
+                <h2>💬 Contact & Help</h2>
+                <p>Welcome to WearAI Support! If you have any questions, feedback, or need help recovering purchases, please get in touch with our team. We are committed to responding to all inquiries within 24 hours.</p>
+                <a href="mailto:support@wearai.jeff.com" class="contact-btn">
+                    <span>✉️</span> Email Support: support@wearai.jeff.com
+                </a>
+            </div>
+
+            <div class="glass-card">
+                <h2>❓ Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How does the AI Virtual Try-On feature work?</div>
+                    <div class="faq-content">Go to the "Try-On" tab, choose one of the built-in models or upload your own photo, select clothing items from your virtual closet, and click the try-on button to see a realistic preview of the outfit.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What features do I get with WearAI Pro?</div>
+                    <div class="faq-content">WearAI Pro unlocks unlimited closet storage (free tier is limited to 100 items), cloud-based photorealistic try-on synthesis (powered by fal.ai & Gemini), automated smart calendar event reminders, and full closet insights.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I restore my purchases on a new device?</div>
+                    <div class="faq-content">To restore your WearAI Pro subscription, navigate to the Profile tab, tap "Upgrade to Pro", and click the "Restore Purchase" link at the bottom. Enter your Apple ID details when prompted.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Tab -->
+        <div id="privacy-section" class="content-section">
+            <div class="glass-card">
+                <h2>🔒 Privacy Policy</h2>
+                <p>Last updated: June 26, 2026</p>
+                <p>WearAI ("we", "our", or "us") operates the WearAI iOS Application. We are committed to protecting your personal data and privacy.</p>
+
+                <div class="section-subtitle">1. Data Collected & Storage</div>
+                <p>All clothing details, local categorization tags, and clothing images are saved locally on your device using iOS SwiftData. We do not store or transmit your clothing photos to our servers.</p>
+                
+                <div class="section-subtitle">2. Third-Party Cloud AI Services</div>
+                <p>If you choose to use advanced cloud virtual try-on, selected clothing images and model backgrounds are temporarily sent to secure third-party endpoints (such as Gemini and Fal.ai) strictly for image rendering. These files are processed securely and are not kept or reused by WearAI.</p>
+
+                <div class="section-subtitle">3. System Permissions Required</div>
+                <ul class="policy-list">
+                    <li><strong>Calendar (EventKit)</strong>: Local access to show upcoming calendar items for event-based dress recommendation.</li>
+                    <li><strong>Camera & Photo Library</strong>: To take photos or import images of clothing and user portraits.</li>
+                    <li><strong>Location</strong>: To access local meteorological data for weather-appropriate styling suggestions.</li>
+                </ul>
+
+                <div class="section-subtitle">4. User Rights & Data Deletion</div>
+                <p>Since all data is stored locally, deleting the WearAI app from your iPhone will immediately erase all wardrobe databases, images, and user configurations from your device.</p>
+
+                <div class="section-subtitle">5. Contact Information</div>
+                <p>For any inquiries regarding this policy, please contact us at support@wearai.jeff.com.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WearAI. All rights reserved. | Terms of Service: Apple Standard EULA</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Remove active classes
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            
+            // Add active class to selected tab button
+            if (tabId === 'support') {
+                event.currentTarget.classList.add('active');
+                document.getElementById('support-section').classList.add('active');
+            } else {
+                event.currentTarget.classList.add('active');
+                document.getElementById('privacy-section').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
